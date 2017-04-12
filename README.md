@@ -26,6 +26,10 @@ WPC needs Microsoft .Net Framework 3.5
 
 All Power Control Functions and parameters have "XML Documentation Comments" that they are shown in code editor when you use them
 
+## Examples
+* Visual Basic.Net Example for WPC [WPCExampleVBNet](https://github.com/melihsen/WPCExampleVBNet)
+* Visual C#.Net Example for WPC [WPCExampleCSharp](https://github.com/melihsen/WPCExampleCSharp)
+
 ## Version
 Inital Version 1.0.0
 
