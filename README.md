@@ -33,4 +33,4 @@ Inital Version 1.0.0
 * **Melih Senyurt** - *Initial work* - [WPC](https://github.com/melihsen/WPC)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [License.txt](License.txt) file for details
