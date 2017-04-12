@@ -15,7 +15,7 @@ All these functions call Windows APIs in a background
 Download "Release" folder of WPC project and copy folder to your .Net project folder (Visual Basic.Net, C#.Net, etc.) Release folder includes WPC.DLL and XML Documentation Comments file which provides explanation of functions and parameters for code editor. Name of "Release" folder can be changed in your project folder.
 
 ### Prerequisites
-WPC needs Microsoft .Net Framework 4.0
+WPC needs Microsoft .Net Framework 3.5
 
 ### Referencing and using WPC.DLL
 * Right click "References" item under your project in Solution Explorer
