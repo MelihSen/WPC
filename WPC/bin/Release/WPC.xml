@@ -1,0 +1,430 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WPC
+</name>
+</assembly>
+<members>
+<member name="T:WPC.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:WPC.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:WPC.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:WPC.ISuspend.HibernateSupported">
+ <summary>Determines whether the computer supports hibernation </summary>
+ <returns>If the computer supports hibernation (power state S4) and the file Hiberfil.sys is present on the system, the property returns True. Otherwise, the property returns False</returns>
+</member>
+<member name="P:WPC.ISuspend.SleepSupported">
+ <summary>Determines whether the computer supports the sleep states </summary>
+ <returns>If the computer supports the sleep states (S1, S2, and S3), the propery returns True. Otherwise, the property returns False</returns>
+</member>
+<member name="M:WPC.ISuspend.Sleep(System.Boolean,System.Boolean)">
+ <summary>Suspends the system by shutting power down. The system enters a sleep state (S1, S2, or S3)</summary>
+ <param name="Force">Forse flag</param>
+ <param name="DisableWakeUpEvent">True: The system disables all wake events / False: Any system wake events remain enabled</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:System.NotSupportedException">Sleep is not supported by the system. Check SleepSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.ISuspend.Hibernate(System.Boolean,System.Boolean)">
+ <summary>Suspends the system by shutting power down. The system enters a hibernation (S4)</summary>
+ <param name="Force">Forse flag</param>
+ <param name="DisableWakeUpEvent">True: The system disables all wake events / False: Any system wake events remain enabled</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:System.NotSupportedException">Hibernate is not supported by the system. Check HibernateSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.Core.LockCore.Lock">
+ <summary>
+ Locks the workstation's display. Locking a workstation protects it from unauthorized use.
+ The function executes asynchronously
+ </summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+</member>
+<member name="T:WPC.Core.ShutdownCore.ShutdownReasonMajor">
+ <summary>Major reason flags. They indicate the general issue type</summary>
+</member>
+<member name="T:WPC.Core.ShutdownCore.ShutdownReasonMinor">
+ <summary>Minor reason flags. They modify the specified minor reason flag</summary>
+</member>
+<member name="T:WPC.Core.ShutdownCore.ShutdownReasonOptional">
+ <summary>Optional flags provide additional information about the event</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonOptional.UserDefined">
+ <summary>The reason code is defined by the user in Windows Registry</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonOptional.Planned">
+ <summary>"The shutdown was planned. The system generates a System State Data (SSD) file. This file contains system state information such as the processes, threads, memory usage, and configuration</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonOptional.Unplanned">
+ <summary>"The shutdown was unplanned </summary>
+</member>
+<member name="T:WPC.Core.ShutdownCore.ShutdownReasonPredefined">
+ <summary>Combinations are recognized by the system. The members indicate the string that is displayed in the Shutdown Event Tracker</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Application_Unresponsive">
+ <summary>"Application: Unresponsive" An unplanned restart or shutdown to troubleshoot an unresponsive application</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Application_Installation_Planned">
+ <summary>"Application: Installation (Planned)" A planned restart or shutdown to perform application installation </summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Application_Maintenance_Unplanned">
+ <summary>"Application: Maintenance (Unplanned)" An unplanned restart or shutdown to service an application</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Application_Maintenance_Planned">
+ <summary>"Application: Maintenance (Planned)" A planned restart or shutdown to perform planned maintenance on an application</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Application_Unstable">
+ <summary>"Application: Unstable" An unplanned restart or shutdown to troubleshoot an unstable application</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Hardware_Installation_Unplanned">
+ <summary>"Hardware: Installation (Unplanned)" An unplanned restart or shutdown to begin or complete hardware installation</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Hardware_Installation_Planned">
+ <summary>"Hardware: Installation (Planned)" A planned restart or shutdown to begin or complete hardware installation</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Hardware_Maintenance_Unplanned">
+ <summary>"Hardware: Maintenance (Unplanned)" An unplanned restart or shutdown to service hardware on the system</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Hardware_Maintenance_Planned">
+ <summary>"Hardware: Maintenance (Planned)" A planned restart or shutdown to service hardware on the system</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_Hotfix_Unplanned">
+ <summary>"Operating System: Hot fix (Unplanned)" An unplanned restart or shutdown to install a hot fix</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_Hotfix_Planned">
+ <summary>"Operating System: Hot fix (Planned)" A planned restart or shutdown to install a hot fix</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_Reconfig_Unplanned">
+ <summary>"Operating System: Reconfiguration (Unplanned)" An unplanned restart or shutdown to change the operating system configuration</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_Reconfig_Planned">
+ <summary>"Operating System: Reconfiguration (Planned)" A planned restart or shutdown to change the operating system configuration</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_SecurityFix_Unplanned">
+ <summary>"Operating System: Security fix (Unplanned)" An unplanned restart or shutdown to install a security patch</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_SecurityFix_Planned">
+ <summary>"Operating System: Security fix (Planned)" A planned restart or shutdown to install a security patch</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_ServicePack_Planned">
+ <summary>"Operating System: Service pack (Planned)" A planned restart or shutdown to install a service pack</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.OperatingSystem_Upgrade_Planned">
+ <summary>"Operating System: Upgrade (Planned)" A planned restart or shutdown to upgrade the operating system configuration</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Other_Unplanned">
+ <summary>"Other (Unplanned)" An unplanned shutdown or restart</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Other_Planned">
+ <summary>"Other (Planned)" A planned shutdown or restart</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Other_Failure_SystemUnresponsive">
+ <summary>"Other Failure: System Unresponsive" The system became unresponsive</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Power_Failure_CordUnplugged">
+ <summary>"Power Failure: Cord Unplugged" The computer was unplugged</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.Power_Failure_Environment">
+ <summary>"Power Failure: Environment" There was a power outage</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.System_Failure_StopErrorBlueScreen">
+ <summary>"System Failure: Stop error" The computer displayed a blue screen crash event</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.System_LossNetworkConnectivity_Unplanned">
+ <summary>"Loss of network connectivity (Unplanned)" The computer needs to be shut down due to a network connectivity issue</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ShutdownReasonPredefined.System_SecurityIssue">
+ <summary>"Security issue" The computer needs to be shut down due to a security issue</summary>
+</member>
+<member name="T:WPC.Core.ShutdownCore.ShutdownType">
+ <summary>Shutdown types</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ForceType.Never">
+ <summary>Force option is disabled</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ForceType.ForceIfHung">
+ <summary>Forces processes to terminate if they do not respond to the WM_QUERYENDSESSION or WM_ENDSESSION message within the timeout interval</summary>
+</member>
+<member name="F:WPC.Core.ShutdownCore.ForceType.ForceAll">
+ <summary> System does not send the WM_QUERYENDSESSION message. This can cause applications to lose data! Therefore, you should only use this flag in an emergency!</summary>
+</member>
+<member name="M:WPC.Core.ShutdownCore.ShutdownSystem(WPC.Core.ShutdownCore.ShutdownType,WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonPredefined)">
+ <summary>Logs off the interactive user, shuts down the system, or shuts down and restarts the system. It sends the WM_QUERYENDSESSION message to all applications to determine if they can be terminated</summary>
+ <param name="ShutdownType">Shutdown Type: Log Off, Shutdown, Reboot, Power Off</param>
+ <param name="ForceOption">Force type</param>
+ <param name="ShutdownReason">Predefined shutdown reasons are recognized by the system. The members indicate the string that is displayed in the Shutdown Event Tracker</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.Core.ShutdownCore.ShutdownSystem(WPC.Core.ShutdownCore.ShutdownType,WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,WPC.Core.ShutdownCore.ShutdownReasonOptional)">
+ <summary>Logs off the interactive user, shuts down the system, or shuts down and restarts the system. It sends the WM_QUERYENDSESSION message to all applications to determine if they can be terminated</summary>
+ <param name="ShutdownType">Shutdown Type: Log Off, Shutdown, Reboot, Power Off</param>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="ReasonOptional">Optional flag that provide additional information about the event</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="P:WPC.Core.SuspendCore.HibernateSupported">
+ <summary>Determines whether the computer supports hibernation </summary>
+ <returns>If the computer supports hibernation (power state S4) and the file Hiberfil.sys is present on the system, the property returns True. Otherwise, the property returns False</returns>
+</member>
+<member name="P:WPC.Core.SuspendCore.SleepSupported">
+ <summary>Determines whether the computer supports the sleep states </summary>
+ <returns>If the computer supports the sleep states (S1, S2, and S3), the propery returns True. Otherwise, the property returns False</returns>
+</member>
+<member name="M:WPC.Core.SuspendCore.SuspendSytem(WPC.ISuspend.SuspendType,System.Boolean,System.Boolean)">
+ <summary>Suspends the system by shutting power down. Depending on the Hibernate parameter, the system either enters a suspend (sleep) state or hibernation (S4) </summary>
+ <param name="SuspendType">Hibernate or Sleep</param>
+ <param name="Force">ForceCritical parameter</param>
+ <param name="DisableWakeUpEvent">If this parameter is True, the system disables all wake events. If the parameter is False, any system wake events remain enabled</param>
+ <returns>If the function succeeds, the return value is True. If the function fails, the return value is False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">SuspendType is not supported by the system. Check HibernateSupported or SleepSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="T:WPC.Core.SuspendNotSupportedException">
+ <summary>The exception that is thrown when system does not support suspend type (Sleep or Hibernate)</summary>
+</member>
+<member name="T:WPC.Core.TokenPrivilegeCore.LUID">
+ <summary> Locally Unique Identifier Structure (LUID)</summary>
+</member>
+<member name="T:WPC.Core.TokenPrivilegeCore.TokenPrivileges">
+ <summary>Contains information about a set of privileges for an access token </summary>
+</member>
+<member name="T:WPC.Core.TokenPrivilegeCore.ShutdownPrivilege">
+ <summary>ShutdownPrivilege type</summary>
+</member>
+<member name="M:WPC.Core.TokenPrivilegeCore.GetShutdownPrivilege(WPC.Core.TokenPrivilegeCore.ShutdownPrivilege)">
+ <summary>Enables the SE_SHUTDOWN_NAME privilege</summary>
+ <param name="ShutdownPrivilegeType">Current Machine or Remote Machine</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="T:WPC.Core.ShutdownPrivilegeException">
+ <summary>The exception that is thrown when system does not allow to get Shutdown Privilege (SE_SHUTDOWN_NAME)</summary>
+</member>
+<member name="P:WPC.WindowsPowerControl.HibernateSupported">
+ <summary>Determines whether the computer supports hibernation </summary>
+ <returns>If the computer supports hibernation (power state S4) and the file Hiberfil.sys is present on the system, the property returns True. Otherwise, the property returns False</returns>
+</member>
+<member name="P:WPC.WindowsPowerControl.SleepSupported">
+ <summary>Determines whether the computer supports the sleep states </summary>
+ <returns>If the computer supports the sleep states (S1, S2, and S3), the propery returns True. Otherwise, the property returns False</returns>
+</member>
+<member name="P:WPC.WindowsPowerControl.DefaultForceOption">
+ <summary>Determines default force type for functions have not force parameter</summary>
+ <returns>Returns default force type</returns>
+</member>
+<member name="P:WPC.WindowsPowerControl.DefaultShutdownReason">
+ <summary>Determines default shutdown reason for functions have not shutdown reason parameters</summary>
+ <returns>Returns default force type</returns>
+</member>
+<member name="M:WPC.WindowsPowerControl.Shutdown">
+ <summary>Shuts down the system to a point at which it is safe to turn off the power. All file buffers have been flushed to disk, and all running processes have stopped</summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Shutdown(WPC.Core.ShutdownCore.ForceType)">
+ <summary>Shuts down the system to a point at which it is safe to turn off the power. All file buffers have been flushed to disk, and all running processes have stopped</summary>
+ <param name="ForceOption">Force type</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Shutdown(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonPredefined)">
+ <summary>Shuts down the system to a point at which it is safe to turn off the power. All file buffers have been flushed to disk, and all running processes have stopped</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ShutdownReason">Predefined shutdown reasons are recognized by the system. The members indicate the string that is displayed in the Shutdown Event Tracker</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Shutdown(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,System.Boolean)">
+ <summary>Shuts down the system to a point at which it is safe to turn off the power. All file buffers have been flushed to disk, and all running processes have stopped</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="Planned">True: Planned shutdown / False: Unplanned shutdown</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Shutdown(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,WPC.Core.ShutdownCore.ShutdownReasonOptional)">
+ <summary>Shuts down the system to a point at which it is safe to turn off the power. All file buffers have been flushed to disk, and all running processes have stopped</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="ReasonOptional">Optional flag that provide additional information about the event</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.PowerOff">
+ <summary>Shuts down the system and turns off the power. The system must support the power-off feature</summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.PowerOff(WPC.Core.ShutdownCore.ForceType)">
+ <summary>Shuts down the system and turns off the power. The system must support the power-off feature</summary>
+ <param name="ForceOption">Force type</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.PowerOff(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonPredefined)">
+ <summary>Shuts down the system and turns off the power. The system must support the power-off feature</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ShutdownReason">Predefined shutdown reasons are recognized by the system. The members indicate the string that is displayed in the Shutdown Event Tracker</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.PowerOff(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,System.Boolean)">
+ <summary>Shuts down the system and turns off the power. The system must support the power-off feature</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="Planned">True: Planned shutdown / False: Unplanned shutdown</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.PowerOff(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,WPC.Core.ShutdownCore.ShutdownReasonOptional)">
+ <summary>Shuts down the system and turns off the power. The system must support the power-off feature</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="ReasonOptional">Optional flag that provide additional information about the event</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Restart">
+ <summary>Shuts down the system and then restarts the system</summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Restart(WPC.Core.ShutdownCore.ForceType)">
+ <summary>Shuts down the system and then restarts the system</summary>
+ <param name="ForceOption">Force type</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Restart(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonPredefined)">
+ <summary>Shuts down the system and then restarts the system</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ShutdownReason">Predefined shutdown reasons are recognized by the system. The members indicate the string that is displayed in the Shutdown Event Tracker</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Restart(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,System.Boolean)">
+ <summary>Shuts down the system and then restarts the system</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="Planned">True: Planned shutdown / False: Unplanned shutdown</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Restart(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,WPC.Core.ShutdownCore.ShutdownReasonOptional)">
+ <summary>Shuts down the system and then restarts the system</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="ReasonOptional">Optional flag that provide additional information about the event</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.LogOff">
+ <summary>Shuts down all processes running in the logon session. Then it logs the user off</summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.LogOff(WPC.Core.ShutdownCore.ForceType)">
+ <summary>Shuts down all processes running in the logon session. Then it logs the user off</summary>
+ <param name="ForceOption">Force type</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.LogOff(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonPredefined)">
+ <summary>Shuts down all processes running in the logon session. Then it logs the user off</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ShutdownReason">Predefined shutdown reasons are recognized by the system. The members indicate the string that is displayed in the Shutdown Event Tracker</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.LogOff(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,System.Boolean)">
+ <summary>Shuts down all processes running in the logon session. Then it logs the user off</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="Planned">True: Planned shutdown / False: Unplanned shutdown</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.LogOff(WPC.Core.ShutdownCore.ForceType,WPC.Core.ShutdownCore.ShutdownReasonMajor,WPC.Core.ShutdownCore.ShutdownReasonMinor,WPC.Core.ShutdownCore.ShutdownReasonOptional)">
+ <summary>Shuts down all processes running in the logon session. Then it logs the user off</summary>
+ <param name="ForceOption">Force type</param>
+ <param name="ReasonMajor">Major reason flag</param>
+ <param name="ReasonMinor">Minor reason flag</param>
+ <param name="ReasonOptional">Optional flag that provide additional information about the event</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Sleep">
+ <summary>Suspends the system by shutting power down. The system enters a sleep state (S1, S2, or S3)</summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">Sleep is not supported by the system. Check SleepSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Sleep(System.Boolean)">
+ <summary>Suspends the system by shutting power down. The system enters a sleep state (S1, S2, or S3)</summary>
+ <param name="Force">Forse flag</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">Sleep is not supported by the system. Check SleepSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Sleep(System.Boolean,System.Boolean)">
+ <summary>Suspends the system by shutting power down. The system enters a sleep state (S1, S2, or S3)</summary>
+ <param name="Force">Forse flag</param>
+ <param name="DisableWakeUpEvent">True: The system disables all wake events / False: Any system wake events remain enabled</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">Sleep is not supported by the system. Check SleepSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Hibernate">
+ <summary>Suspends the system by shutting power down. The system enters a hibernation (S4)</summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">Hibernate is not supported by the system. Check HibernateSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Hibernate(System.Boolean)">
+ <summary>Suspends the system by shutting power down. The system enters a hibernation (S4)</summary>
+ <param name="Force">Forse flag</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">Hibernate is not supported by the system. Check HibernateSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Hibernate(System.Boolean,System.Boolean)">
+ <summary>Suspends the system by shutting power down. The system enters a hibernation (S4)</summary>
+ <param name="Force">Forse flag</param>
+ <param name="DisableWakeUpEvent">True: The system disables all wake events / False: Any system wake events remain enabled</param>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+ <exception cref="T:WPC.Core.SuspendNotSupportedException">Hibernate is not supported by the system. Check HibernateSupported property</exception>
+ <exception cref="T:WPC.Core.ShutdownPrivilegeException"></exception>
+</member>
+<member name="M:WPC.WindowsPowerControl.Lock">
+ <summary>
+ Locks the workstation's display. Locking a workstation protects it from unauthorized use.
+ The function executes asynchronously
+ </summary>
+ <returns>If the system accepts, the function returns True. Otherwise the function returns False</returns>
+</member>
+</members>
+</doc>
