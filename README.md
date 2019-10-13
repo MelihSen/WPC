@@ -15,7 +15,7 @@ All these functions call Windows APIs in a background
 Download "Release" folder of WPC project and copy folder to your .Net project folder (Visual Basic.Net, C#.Net, etc.) Release folder includes WPC.DLL and XML Documentation Comments file which provides explanation of functions and parameters for code editor. Name of "Release" folder can be changed in your project folder.
 
 ### Prerequisites
-WPC needs Microsoft .Net Framework 3.5
+WPC needs Microsoft .Net Framework 4.5
 
 ### Referencing and using WPC.DLL
 * Right click "References" item under your project in Solution Explorer
@@ -31,7 +31,7 @@ All Power Control Functions and parameters have "XML Documentation Comments" tha
 * Visual C#.Net Example for WPC [WPCExampleCSharp](https://github.com/melihsen/WPCExampleCSharp)
 
 ## Version
-Inital Version 1.0.0
+Version 1.0.1
 
 ## Author
 * **Melih Senyurt** - *Initial work* - [WPC](https://github.com/melihsen/WPC)
